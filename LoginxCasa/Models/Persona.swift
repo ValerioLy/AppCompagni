@@ -16,48 +16,52 @@ import RealmSwift
     dynamic var surname : String?
     dynamic var mobile : String?
     dynamic var email : String?
+    dynamic var password : String!
+    
+    private let compagni : List<Compagno> = List<Compagno>()
     
     
-    
-    
-//    private let pets : List<Pet> = List<Pet>()
-    
-    
-    convenience init(name : String? = nil, surname: String? = nil, mobile: String? = nil, image: Data? = nil) {
+
+    convenience init(image: Data? = nil, name : String? = nil, surname: String? = nil, password: String? = nil, mobile: String? = nil, email : String? = nil) {
         self.init()
         
+        self.id = UUID().uuidString
+        self.image = image
         self.name = name
         self.surname = surname
         self.mobile = mobile
-        
-        self.image = image
-        
-        self.id = UUID().uuidString
-        
-        
+        self.email = email
+        self.password = password
+
+
+    }
+
+    
+    func getCompagni() -> [Compagno] {
+        return Array(compagni)
+    }
+
+    
+   override static func primaryKey() -> String? {
+        return "id"
     }
     
-   
-    
-    
-    
-    
-    func changeData(in realm: Realm = try! Realm(configuration: RealmUtils.config), name : String? = nil, surname: String? = nil, mobile: String? = nil, image: Data? = nil, person: Person? = nil) {
+    func changeData(in realm: Realm = try! Realm(configuration: RealmUtils.config), name : String? = nil, surname: String? = nil, mobile: String? = nil, password: String? = nil, image: Data? = nil, email: String? = nil, persona: Persona? = nil) {
         do {
             try realm.write {
                 
-                self.name = name ?? person?.name ?? self.name
-                self.surname = surname ?? person?.surname ?? self.surname
-                self.mobile = mobile ?? person?.mobile ?? self.mobile
-                
-                self.image = image ?? person?.image ?? self.image
-                
+                self.image = image ?? persona?.image ?? self.image
+                self.name = name ?? persona?.name ?? self.name
+                self.surname = surname ?? persona?.surname ?? self.surname
+                self.mobile = mobile ?? persona?.mobile ?? self.mobile
+                self.email = email ?? persona?.email ?? self.email
+                self.password = password ?? persona?.password ?? self.password
             }
         }catch {}
-        
+
     }
-    
-    
+
+
     func add(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
@@ -65,10 +69,15 @@ import RealmSwift
             }
         } catch {}
     }
+
+    // withid è l'email
+    static func readUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), withid: String) -> Persona? {
+        return realm.object(ofType: Persona.self, forPrimaryKey: withid)
+}
     
-    static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Person] {
-        return Array(realm.objects(Person.self))
+    
+    
+    static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Persona] {
+        return Array(realm.objects(Persona.self))
     }
-    
-    
 }

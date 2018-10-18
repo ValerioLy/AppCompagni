@@ -41,6 +41,11 @@ import RealmSwift
         return Array(realm.objects(Compagno.self))
     }
 
-    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    static func readUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), withid: String) -> Persona? {
+        return realm.object(ofType: Persona.self, forPrimaryKey: withid)
+    }
     
 }

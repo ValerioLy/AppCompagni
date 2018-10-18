@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9FD3C8B91D9B280AC7C46DCE /* Pods_LoginxCasa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1039FDA621CD3FDAC5DF208A /* Pods_LoginxCasa.framework */; };
+		F903E0BF217859B100112A28 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0BE217859B100112A28 /* RegisterViewController.swift */; };
+		F903E0C221785AF700112A28 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0C121785AF700112A28 /* LoginViewController.swift */; };
 		F94B914C21775DDB000457F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B914B21775DDB000457F2 /* AppDelegate.swift */; };
 		F94B914E21775DDB000457F2 /* ListaCompagniController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B914D21775DDB000457F2 /* ListaCompagniController.swift */; };
 		F94B915121775DDB000457F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94B914F21775DDB000457F2 /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 		1039FDA621CD3FDAC5DF208A /* Pods_LoginxCasa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginxCasa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26569ABD95DBEDE0B4561799 /* Pods-LoginxCasa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginxCasa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoginxCasa/Pods-LoginxCasa.debug.xcconfig"; sourceTree = "<group>"; };
 		34B483EB191506F634DF7804 /* Pods-LoginxCasa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginxCasa.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoginxCasa/Pods-LoginxCasa.release.xcconfig"; sourceTree = "<group>"; };
+		F903E0BE217859B100112A28 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "../../../../../Downloads/GruppoB---16.10.18-master/Cinema/Register/RegisterViewController.swift"; sourceTree = "<group>"; };
+		F903E0C121785AF700112A28 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "../../../../../Downloads/GruppoB---16.10.18-master/Cinema/Login/LoginViewController.swift"; sourceTree = "<group>"; };
 		F94B914821775DDB000457F2 /* LoginxCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginxCasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94B914B21775DDB000457F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F94B914D21775DDB000457F2 /* ListaCompagniController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaCompagniController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F903E0BD2178599500112A28 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				F903E0BE217859B100112A28 /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		F903E0C021785AEB00112A28 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F903E0C121785AF700112A28 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		F94B913F21775DDB000457F2 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				F94B918421777298000457F2 /* RealmUtils.swift */,
+				F903E0BD2178599500112A28 /* Register */,
+				F903E0C021785AEB00112A28 /* Login */,
 				F94B917F21776A6E000457F2 /* Models */,
 				F94B917E2177634D000457F2 /* ListaCompagni */,
 				F94B914B21775DDB000457F2 /* AppDelegate.swift */,
@@ -361,7 +383,9 @@
 			files = (
 				F94B914E21775DDB000457F2 /* ListaCompagniController.swift in Sources */,
 				F94B918521777298000457F2 /* RealmUtils.swift in Sources */,
+				F903E0BF217859B100112A28 /* RegisterViewController.swift in Sources */,
 				F94B917A2177624D000457F2 /* ListaCompagniCell.swift in Sources */,
+				F903E0C221785AF700112A28 /* LoginViewController.swift in Sources */,
 				F94B914C21775DDB000457F2 /* AppDelegate.swift in Sources */,
 				F94B9183217770A6000457F2 /* Persona.swift in Sources */,
 				F94B918121776A8B000457F2 /* Compagno.swift in Sources */,
