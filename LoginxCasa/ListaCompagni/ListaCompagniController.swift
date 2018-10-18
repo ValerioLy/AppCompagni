@@ -57,8 +57,14 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     
     
     
+    @IBAction func goCompagniProfile(_ sender: Any) {
+        self.performSegue(withIdentifier: "segueCompagnoProfile", sender: self)
+    }
     
     
+    @IBAction func GoSeats(_ sender: Any) {
+         self.performSegue(withIdentifier: "segueSeats", sender: self)
+    }
     
 }
 

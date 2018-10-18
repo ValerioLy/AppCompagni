@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		9FD3C8B91D9B280AC7C46DCE /* Pods_LoginxCasa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1039FDA621CD3FDAC5DF208A /* Pods_LoginxCasa.framework */; };
-		F903E0BF217859B100112A28 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0BE217859B100112A28 /* RegisterViewController.swift */; };
-		F903E0C221785AF700112A28 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0C121785AF700112A28 /* LoginViewController.swift */; };
+		F903E0C821786B3000112A28 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0C721786B3000112A28 /* RegisterViewController.swift */; };
+		F903E0CA21786B3D00112A28 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0C921786B3D00112A28 /* LoginViewController.swift */; };
+		F903E0CC2178741C00112A28 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0CB2178741C00112A28 /* UserProfileController.swift */; };
+		F903E0D72178800600112A28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F903E0D52178800600112A28 /* Main.storyboard */; };
+		F903E0DA217880D500112A28 /* CompagnoProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0D9217880D500112A28 /* CompagnoProfileController.swift */; };
+		F903E0DD2178813B00112A28 /* SeatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0DC2178813B00112A28 /* SeatsController.swift */; };
+		F903E0DF217885AF00112A28 /* SeatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0DE217885AF00112A28 /* SeatsCollectionViewCell.swift */; };
 		F94B914C21775DDB000457F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B914B21775DDB000457F2 /* AppDelegate.swift */; };
 		F94B914E21775DDB000457F2 /* ListaCompagniController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B914D21775DDB000457F2 /* ListaCompagniController.swift */; };
-		F94B915121775DDB000457F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94B914F21775DDB000457F2 /* Main.storyboard */; };
 		F94B915321775DDD000457F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F94B915221775DDD000457F2 /* Assets.xcassets */; };
 		F94B915621775DDD000457F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F94B915421775DDD000457F2 /* LaunchScreen.storyboard */; };
 		F94B916121775DDE000457F2 /* LoginxCasaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B916021775DDE000457F2 /* LoginxCasaTests.swift */; };
@@ -44,12 +48,16 @@
 		1039FDA621CD3FDAC5DF208A /* Pods_LoginxCasa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginxCasa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26569ABD95DBEDE0B4561799 /* Pods-LoginxCasa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginxCasa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LoginxCasa/Pods-LoginxCasa.debug.xcconfig"; sourceTree = "<group>"; };
 		34B483EB191506F634DF7804 /* Pods-LoginxCasa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginxCasa.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoginxCasa/Pods-LoginxCasa.release.xcconfig"; sourceTree = "<group>"; };
-		F903E0BE217859B100112A28 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "../../../../../Downloads/GruppoB---16.10.18-master/Cinema/Register/RegisterViewController.swift"; sourceTree = "<group>"; };
-		F903E0C121785AF700112A28 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "../../../../../Downloads/GruppoB---16.10.18-master/Cinema/Login/LoginViewController.swift"; sourceTree = "<group>"; };
+		F903E0C721786B3000112A28 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F903E0C921786B3D00112A28 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F903E0CB2178741C00112A28 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		F903E0D62178800600112A28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F903E0D9217880D500112A28 /* CompagnoProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompagnoProfileController.swift; sourceTree = "<group>"; };
+		F903E0DC2178813B00112A28 /* SeatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsController.swift; sourceTree = "<group>"; };
+		F903E0DE217885AF00112A28 /* SeatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F94B914821775DDB000457F2 /* LoginxCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginxCasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94B914B21775DDB000457F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F94B914D21775DDB000457F2 /* ListaCompagniController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaCompagniController.swift; sourceTree = "<group>"; };
-		F94B915021775DDB000457F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F94B915221775DDD000457F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F94B915521775DDD000457F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F94B915721775DDD000457F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +119,7 @@
 		F903E0BD2178599500112A28 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				F903E0BE217859B100112A28 /* RegisterViewController.swift */,
+				F903E0C721786B3000112A28 /* RegisterViewController.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -119,9 +127,34 @@
 		F903E0C021785AEB00112A28 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				F903E0C121785AF700112A28 /* LoginViewController.swift */,
+				F903E0C921786B3D00112A28 /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F903E0CD2178742100112A28 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				F903E0CB2178741C00112A28 /* UserProfileController.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		F903E0D8217880AB00112A28 /* CompagnoProfile */ = {
+			isa = PBXGroup;
+			children = (
+				F903E0D9217880D500112A28 /* CompagnoProfileController.swift */,
+			);
+			path = CompagnoProfile;
+			sourceTree = "<group>";
+		};
+		F903E0DB2178810F00112A28 /* Seats */ = {
+			isa = PBXGroup;
+			children = (
+				F903E0DC2178813B00112A28 /* SeatsController.swift */,
+				F903E0DE217885AF00112A28 /* SeatsCollectionViewCell.swift */,
+			);
+			path = Seats;
 			sourceTree = "<group>";
 		};
 		F94B913F21775DDB000457F2 = {
@@ -150,12 +183,15 @@
 			isa = PBXGroup;
 			children = (
 				F94B918421777298000457F2 /* RealmUtils.swift */,
+				F903E0DB2178810F00112A28 /* Seats */,
+				F903E0D8217880AB00112A28 /* CompagnoProfile */,
 				F903E0BD2178599500112A28 /* Register */,
+				F903E0CD2178742100112A28 /* UserProfile */,
 				F903E0C021785AEB00112A28 /* Login */,
 				F94B917F21776A6E000457F2 /* Models */,
 				F94B917E2177634D000457F2 /* ListaCompagni */,
 				F94B914B21775DDB000457F2 /* AppDelegate.swift */,
-				F94B914F21775DDB000457F2 /* Main.storyboard */,
+				F903E0D52178800600112A28 /* Main.storyboard */,
 				F94B915221775DDD000457F2 /* Assets.xcassets */,
 				F94B915421775DDD000457F2 /* LaunchScreen.storyboard */,
 				F94B915721775DDD000457F2 /* Info.plist */,
@@ -305,9 +341,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F903E0D72178800600112A28 /* Main.storyboard in Resources */,
 				F94B915621775DDD000457F2 /* LaunchScreen.storyboard in Resources */,
 				F94B915321775DDD000457F2 /* Assets.xcassets in Resources */,
-				F94B915121775DDB000457F2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,14 +417,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F903E0C821786B3000112A28 /* RegisterViewController.swift in Sources */,
+				F903E0DA217880D500112A28 /* CompagnoProfileController.swift in Sources */,
 				F94B914E21775DDB000457F2 /* ListaCompagniController.swift in Sources */,
 				F94B918521777298000457F2 /* RealmUtils.swift in Sources */,
-				F903E0BF217859B100112A28 /* RegisterViewController.swift in Sources */,
 				F94B917A2177624D000457F2 /* ListaCompagniCell.swift in Sources */,
-				F903E0C221785AF700112A28 /* LoginViewController.swift in Sources */,
 				F94B914C21775DDB000457F2 /* AppDelegate.swift in Sources */,
 				F94B9183217770A6000457F2 /* Persona.swift in Sources */,
+				F903E0DF217885AF00112A28 /* SeatsCollectionViewCell.swift in Sources */,
+				F903E0DD2178813B00112A28 /* SeatsController.swift in Sources */,
+				F903E0CA21786B3D00112A28 /* LoginViewController.swift in Sources */,
 				F94B918121776A8B000457F2 /* Compagno.swift in Sources */,
+				F903E0CC2178741C00112A28 /* UserProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,10 +464,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F94B914F21775DDB000457F2 /* Main.storyboard */ = {
+		F903E0D52178800600112A28 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F94B915021775DDB000457F2 /* Base */,
+				F903E0D62178800600112A28 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
