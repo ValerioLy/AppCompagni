@@ -52,7 +52,7 @@ class RegisterViewController: UIViewController {
                 return
             }
             
-        }
+        } 
         guard isValidEmail(testStr: email) else{
             myAlert("Invalid email")
             NSLog("Email non valida!")
