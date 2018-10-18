@@ -62,7 +62,7 @@ class RegisterViewController: UIViewController {
         Persona(name: registerCollection[TextFieldsType.name.rawValue].text, surname: registerCollection[TextFieldsType.surname.rawValue].text, password: registerCollection[TextFieldsType.password.rawValue].text, email: registerCollection[TextFieldsType.email.rawValue].text).add()
         NSLog("Salvato, registrato!")
         
-        self.performSegue(withIdentifier: "segueLogin", sender: self.dismiss)
+        self.performSegue(withIdentifier: "segueUserProfile", sender: self.dismiss)
         
         
     }
@@ -74,11 +74,12 @@ class RegisterViewController: UIViewController {
     }
     
     
-    @IBAction func GoUserProfile(_ sender: UIButton) {
+   
+    @IBAction func GoLogin(_ sender: UIButton) {
         
-        self.performSegue(withIdentifier: "segueUserProfile", sender: self.dismiss)
+        self.performSegue(withIdentifier: "segueLogin", sender: self.dismiss)
+        
     }
-    
     
     
     

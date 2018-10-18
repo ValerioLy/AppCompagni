@@ -455,15 +455,17 @@
                                     <action selector="registerActionButton:" destination="18e-Om-Fu4" eventType="touchUpInside" id="t3l-FK-NjE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z60-58-ABp">
-                                <rect key="frame" x="159" y="595" width="54" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpo-0e-U6c">
+                                <rect key="frame" x="159" y="601" width="57" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="3YH-8p-wgb"/>
-                                    <constraint firstAttribute="width" constant="54" id="61b-Nu-loO"/>
+                                    <constraint firstAttribute="width" constant="57" id="2do-U5-SVZ"/>
+                                    <constraint firstAttribute="height" constant="32" id="6Xm-d5-fs7"/>
                                 </constraints>
-                                <state key="normal" title="UserProfile" image="userprofile"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.3547734186" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="GoUserProfile:" destination="18e-Om-Fu4" eventType="touchUpInside" id="BoR-Tc-QEt"/>
+                                    <action selector="GoLogin:" destination="18e-Om-Fu4" eventType="touchUpInside" id="eKx-ic-2Ox"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -475,10 +477,8 @@
                             <constraint firstItem="wK8-OU-DZD" firstAttribute="bottom" secondItem="8j3-V4-2d1" secondAttribute="bottom" id="2ZS-Oo-XK2"/>
                             <constraint firstItem="vRB-TM-Sep" firstAttribute="bottom" secondItem="LJt-Jt-VUG" secondAttribute="bottom" id="44C-Go-Xhv"/>
                             <constraint firstItem="YXH-wK-xpa" firstAttribute="leading" secondItem="XhX-jq-ZMV" secondAttribute="leading" id="6Rw-kK-9Iq"/>
-                            <constraint firstItem="0wG-tC-1YE" firstAttribute="bottom" secondItem="z60-58-ABp" secondAttribute="bottom" constant="20" id="7FT-TF-8aF"/>
                             <constraint firstItem="mgK-Xd-oL7" firstAttribute="trailing" secondItem="9dh-i7-lRO" secondAttribute="trailing" id="8H9-eS-Tab"/>
                             <constraint firstItem="Yul-0G-6hO" firstAttribute="centerY" secondItem="LJt-Jt-VUG" secondAttribute="centerY" id="8Kh-7a-lbq"/>
-                            <constraint firstItem="z60-58-ABp" firstAttribute="top" secondItem="mJ5-t3-76h" secondAttribute="bottom" constant="20" id="9sf-rP-6Yo"/>
                             <constraint firstItem="05D-lj-uce" firstAttribute="top" secondItem="9dh-i7-lRO" secondAttribute="bottom" constant="32" id="BQX-xZ-kPb"/>
                             <constraint firstItem="05D-lj-uce" firstAttribute="height" secondItem="XEF-fF-bde" secondAttribute="height" id="BXC-8A-ETi"/>
                             <constraint firstItem="vd2-g2-4mh" firstAttribute="leading" secondItem="uz4-OP-B9s" secondAttribute="leading" id="E3K-iG-zwe"/>
@@ -488,7 +488,6 @@
                             <constraint firstItem="mJ5-t3-76h" firstAttribute="centerX" secondItem="vyf-e9-VJl" secondAttribute="centerX" id="HIN-Pd-uYl"/>
                             <constraint firstItem="YXH-wK-xpa" firstAttribute="trailing" secondItem="XhX-jq-ZMV" secondAttribute="trailing" id="HOh-YF-oZi"/>
                             <constraint firstItem="Ay1-HN-PL5" firstAttribute="leading" secondItem="XEF-fF-bde" secondAttribute="leading" id="HQB-EJ-0Ge"/>
-                            <constraint firstItem="0wG-tC-1YE" firstAttribute="trailing" secondItem="z60-58-ABp" secondAttribute="trailing" constant="162" id="JMu-bq-jCh"/>
                             <constraint firstItem="vd2-g2-4mh" firstAttribute="trailing" secondItem="uz4-OP-B9s" secondAttribute="trailing" id="Ndh-uS-lPJ"/>
                             <constraint firstItem="wK8-OU-DZD" firstAttribute="trailing" secondItem="8j3-V4-2d1" secondAttribute="trailing" id="ODy-7D-oqP"/>
                             <constraint firstItem="mgK-Xd-oL7" firstAttribute="height" secondItem="XhX-jq-ZMV" secondAttribute="height" id="Paa-Ky-UfW"/>
@@ -499,13 +498,16 @@
                             <constraint firstItem="8j3-V4-2d1" firstAttribute="top" secondItem="LJt-Jt-VUG" secondAttribute="bottom" constant="32" id="TvZ-Pf-58G"/>
                             <constraint firstItem="uz4-OP-B9s" firstAttribute="leading" secondItem="9dh-i7-lRO" secondAttribute="trailing" constant="16" id="VC8-hW-mib"/>
                             <constraint firstItem="YXH-wK-xpa" firstAttribute="bottom" secondItem="XhX-jq-ZMV" secondAttribute="bottom" id="VU5-9B-d5j"/>
+                            <constraint firstItem="rpo-0e-U6c" firstAttribute="top" secondItem="mJ5-t3-76h" secondAttribute="bottom" constant="26" id="Vbc-vr-7j1"/>
                             <constraint firstItem="VqW-jH-7Tx" firstAttribute="top" secondItem="0wG-tC-1YE" secondAttribute="top" constant="64" id="WdX-Jh-A4w"/>
                             <constraint firstItem="0wG-tC-1YE" firstAttribute="trailing" secondItem="XEF-fF-bde" secondAttribute="trailing" constant="64" id="X7p-Q6-DgY"/>
                             <constraint firstItem="0wG-tC-1YE" firstAttribute="trailing" secondItem="XhX-jq-ZMV" secondAttribute="trailing" constant="64" id="X8m-7A-mPe"/>
                             <constraint firstItem="9dh-i7-lRO" firstAttribute="centerY" secondItem="uz4-OP-B9s" secondAttribute="centerY" id="XAr-oF-wbr"/>
                             <constraint firstItem="XhX-jq-ZMV" firstAttribute="leading" secondItem="mgK-Xd-oL7" secondAttribute="trailing" constant="16" id="XeC-BA-beE"/>
                             <constraint firstItem="uz4-OP-B9s" firstAttribute="top" secondItem="XhX-jq-ZMV" secondAttribute="bottom" constant="32" id="Xfr-2i-NXA"/>
+                            <constraint firstItem="rpo-0e-U6c" firstAttribute="leading" secondItem="0wG-tC-1YE" secondAttribute="leading" constant="159" id="Xsa-di-gkY"/>
                             <constraint firstItem="Ay1-HN-PL5" firstAttribute="bottom" secondItem="XEF-fF-bde" secondAttribute="bottom" id="YPu-Xf-Naf"/>
+                            <constraint firstItem="0wG-tC-1YE" firstAttribute="bottom" secondItem="rpo-0e-U6c" secondAttribute="bottom" constant="34" id="YS4-d2-uHn"/>
                             <constraint firstItem="9dh-i7-lRO" firstAttribute="trailing" secondItem="05D-lj-uce" secondAttribute="trailing" id="aVO-Ir-MZX"/>
                             <constraint firstItem="fMs-bt-xBx" firstAttribute="trailing" secondItem="Yul-0G-6hO" secondAttribute="trailing" id="brl-15-9mH"/>
                             <constraint firstItem="fMs-bt-xBx" firstAttribute="top" secondItem="Yul-0G-6hO" secondAttribute="bottom" constant="32" id="cV2-6d-wVr"/>
@@ -514,7 +516,6 @@
                             <constraint firstItem="XhX-jq-ZMV" firstAttribute="top" secondItem="VqW-jH-7Tx" secondAttribute="bottom" constant="64" id="eWL-G5-VAq"/>
                             <constraint firstItem="8j3-V4-2d1" firstAttribute="centerY" secondItem="fMs-bt-xBx" secondAttribute="centerY" id="f2A-aA-YVq"/>
                             <constraint firstItem="Yul-0G-6hO" firstAttribute="top" secondItem="05D-lj-uce" secondAttribute="bottom" constant="32" id="fDT-KB-qFK"/>
-                            <constraint firstItem="z60-58-ABp" firstAttribute="leading" secondItem="0wG-tC-1YE" secondAttribute="leading" constant="159" id="fTJ-YB-g3o"/>
                             <constraint firstItem="Ay1-HN-PL5" firstAttribute="trailing" secondItem="XEF-fF-bde" secondAttribute="trailing" id="foy-dx-7OI"/>
                             <constraint firstItem="0wG-tC-1YE" firstAttribute="trailing" secondItem="uz4-OP-B9s" secondAttribute="trailing" constant="64" id="gHX-ch-Juk"/>
                             <constraint firstItem="vRB-TM-Sep" firstAttribute="leading" secondItem="LJt-Jt-VUG" secondAttribute="leading" id="iKx-qt-5Lq"/>
@@ -524,6 +525,7 @@
                             <constraint firstItem="XEF-fF-bde" firstAttribute="centerY" secondItem="05D-lj-uce" secondAttribute="centerY" id="uRA-0N-Nd6"/>
                             <constraint firstItem="XEF-fF-bde" firstAttribute="top" secondItem="uz4-OP-B9s" secondAttribute="bottom" constant="32" id="wRS-LD-pdz"/>
                             <constraint firstItem="vRB-TM-Sep" firstAttribute="trailing" secondItem="LJt-Jt-VUG" secondAttribute="trailing" id="wnX-dQ-GSu"/>
+                            <constraint firstItem="0wG-tC-1YE" firstAttribute="trailing" secondItem="rpo-0e-U6c" secondAttribute="trailing" constant="159" id="xlW-wc-ZOo"/>
                             <constraint firstItem="VqW-jH-7Tx" firstAttribute="centerX" secondItem="vyf-e9-VJl" secondAttribute="centerX" id="y4w-2w-mEP"/>
                             <constraint firstItem="8j3-V4-2d1" firstAttribute="leading" secondItem="fMs-bt-xBx" secondAttribute="trailing" constant="16" id="zmT-Ur-kxR"/>
                         </constraints>
@@ -875,7 +877,6 @@
         <image name="filter" width="170" height="170"/>
         <image name="place" width="500" height="500"/>
         <image name="school" width="512" height="512"/>
-        <image name="userprofile" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bvG-ZN-1iR"/>
