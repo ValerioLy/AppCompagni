@@ -13,11 +13,11 @@ class ListaCompagniCell: UITableViewCell {
     
     @IBOutlet weak var Img: UIButton!
     
-    @IBOutlet var NameLabel: [UILabel]!
+    @IBOutlet weak var NameLabel: UILabel!
     
-    @IBOutlet var SurnameLabel: [UILabel]!
+    @IBOutlet weak var SurnameLabel: UILabel!
     
-    @IBOutlet var stairs: [UIButton]!
+    @IBOutlet  var stairs: [UIButton]!
     
     static let kidentifier = "ListaCompagniCell"
     
@@ -33,9 +33,11 @@ class ListaCompagniCell: UITableViewCell {
     
     
     @IBAction func ActionStairs(_ sender: UIButton) {
+        
+      
     }
     
+  
+   
     
-    
-
 }

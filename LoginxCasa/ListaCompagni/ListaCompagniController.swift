@@ -8,19 +8,33 @@
 
 import UIKit
 
+// delegate aggiungi compagno
+protocol CompagnoDelegate: class {
+    func addingCompagno(compagno: Compagno)
+    
+}
+
+
 class ListaCompagniController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
     @IBOutlet weak var tableView: UITableView!
     
-    var listaCompagni : [Compagno] = Compagno.all()
+   
+    var person : Persona = Persona()
+    
+    
+    private var listaCompagni : [Compagno] = []  
+    
+    private var selectedCompagno : Compagno?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if listaCompagni.count == 0 {
-        for i in 1...30 {
-            listaCompagni.append(Compagno(name : "Nome+\(i)", surname: "cognome", image: UIImage(named: "place")?.pngData()))
-        }
-    }
+
+        
+        
+        listaCompagni = Compagno.all()
+
     }
     
 
@@ -32,10 +46,54 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ListaCompagniCell.kidentifier, for: indexPath) as! ListaCompagniCell
-              cell.NameLabel[0].text = listaCompagni[indexPath.row].name
-              cell.SurnameLabel[0].text = listaCompagni[indexPath.row].surname
-              
+
+
+        cell.NameLabel.text = listaCompagni[indexPath.row].name
+        cell.SurnameLabel.text = listaCompagni[indexPath.row].surname
+
+        
+        if let imageProfile = listaCompagni[indexPath.row].image{
+          cell.Img.setImage(UIImage(data: imageProfile), for: .normal)
+        } else {
+            cell.Img.setImage(UIImage(named: "place"), for: .normal)
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    //
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            print("Deleted")
+            
+            person.removeCompagno(index: indexPath.row)
+            listaCompagni[indexPath.row].remove()
+            listaCompagni.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedCompagno = listaCompagni[indexPath.row]
+        self.performSegue(withIdentifier: "segueCompagnoProfile", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        switch segue.identifier {
+        case "segueCompagnoProfile":
+            if let destinationController = segue.destination as? CompagnoProfileController {
+                destinationController.compagno = selectedCompagno ?? Compagno()
+                destinationController.delegate = self
+            }
+        default:
+            break
+        }
+        
     }
     
     
@@ -56,10 +114,12 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
+   
     
-    @IBAction func goCompagniProfile(_ sender: Any) {
-        self.performSegue(withIdentifier: "segueCompagnoProfile", sender: self)
+    @IBAction func GoProfile(_ sender: Any) {
+         self.performSegue(withIdentifier: "segueCompagnoProfile", sender: self)
     }
+    
     
     
     @IBAction func GoSeats(_ sender: Any) {
@@ -68,3 +128,17 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     
 }
 
+extension ListaCompagniController: CompagnoDelegate {
+    
+   //
+    func addingCompagno(compagno: Compagno) {
+        compagno.add()
+        person.addingCompagni(compagno: compagno)
+        listaCompagni.append(compagno)
+        tableView.insertRows(at: [IndexPath(item: listaCompagni.count - 1, section: 0)], with: .automatic)
+        tableView.reloadData()
+    }
+    
+
+    
+}

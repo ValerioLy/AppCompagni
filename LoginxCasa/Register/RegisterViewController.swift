@@ -19,6 +19,8 @@ class RegisterViewController: UIViewController {
     }
     private var listPerson : [Persona]!
     
+    private var userRegistered : Persona?
+    
     @IBOutlet var registerCollection: [UITextField]!
     @IBAction func registerActionButton(_ sender: UIButton) {
         for tag in 0...4 {
@@ -51,7 +53,7 @@ class RegisterViewController: UIViewController {
                 NSLog("email già esistente")
                 return
             }
-             
+            
         }
         guard isValidEmail(testStr: email) else{
             myAlert("Invalid email")
@@ -59,12 +61,15 @@ class RegisterViewController: UIViewController {
             return
         }
         NSLog("email non esistente")
-        Persona(name: registerCollection[TextFieldsType.name.rawValue].text, surname: registerCollection[TextFieldsType.surname.rawValue].text, password: registerCollection[TextFieldsType.password.rawValue].text, email: registerCollection[TextFieldsType.email.rawValue].text).add()
+        userRegistered = Persona(name: registerCollection[TextFieldsType.name.rawValue].text, surname: registerCollection[TextFieldsType.surname.rawValue].text, password: registerCollection[TextFieldsType.password.rawValue].text, email: registerCollection[TextFieldsType.email.rawValue].text)
+        
+        userRegistered?.add()
+        
         NSLog("Salvato, registrato!")
         
         self.performSegue(withIdentifier: "segueUserProfile", sender: self.dismiss)
         
-        
+        //a
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +102,14 @@ class RegisterViewController: UIViewController {
     }
     
     
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "segueUserProfile":
+            if let destinationController = segue.destination as? UserProfileController {
+                destinationController.person =  userRegistered ?? Persona()
+            }
+        default:
+            break
+    }
+}
 }

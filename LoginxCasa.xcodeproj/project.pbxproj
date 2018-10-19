@@ -15,6 +15,7 @@
 		F903E0DA217880D500112A28 /* CompagnoProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0D9217880D500112A28 /* CompagnoProfileController.swift */; };
 		F903E0DD2178813B00112A28 /* SeatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0DC2178813B00112A28 /* SeatsController.swift */; };
 		F903E0DF217885AF00112A28 /* SeatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0DE217885AF00112A28 /* SeatsCollectionViewCell.swift */; };
+		F903E0E12178A87000112A28 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F903E0E02178A87000112A28 /* Extensions.swift */; };
 		F94B914C21775DDB000457F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B914B21775DDB000457F2 /* AppDelegate.swift */; };
 		F94B914E21775DDB000457F2 /* ListaCompagniController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94B914D21775DDB000457F2 /* ListaCompagniController.swift */; };
 		F94B915321775DDD000457F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F94B915221775DDD000457F2 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		F903E0D9217880D500112A28 /* CompagnoProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompagnoProfileController.swift; sourceTree = "<group>"; };
 		F903E0DC2178813B00112A28 /* SeatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsController.swift; sourceTree = "<group>"; };
 		F903E0DE217885AF00112A28 /* SeatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsCollectionViewCell.swift; sourceTree = "<group>"; };
+		F903E0E02178A87000112A28 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F94B914821775DDB000457F2 /* LoginxCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginxCasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F94B914B21775DDB000457F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F94B914D21775DDB000457F2 /* ListaCompagniController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaCompagniController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				F94B918421777298000457F2 /* RealmUtils.swift */,
+				F903E0E02178A87000112A28 /* Extensions.swift */,
 				F903E0DB2178810F00112A28 /* Seats */,
 				F903E0D8217880AB00112A28 /* CompagnoProfile */,
 				F903E0BD2178599500112A28 /* Register */,
@@ -425,6 +428,7 @@
 				F94B914C21775DDB000457F2 /* AppDelegate.swift in Sources */,
 				F94B9183217770A6000457F2 /* Persona.swift in Sources */,
 				F903E0DF217885AF00112A28 /* SeatsCollectionViewCell.swift in Sources */,
+				F903E0E12178A87000112A28 /* Extensions.swift in Sources */,
 				F903E0DD2178813B00112A28 /* SeatsController.swift in Sources */,
 				F903E0CA21786B3D00112A28 /* LoginViewController.swift in Sources */,
 				F94B918121776A8B000457F2 /* Compagno.swift in Sources */,

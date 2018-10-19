@@ -42,6 +42,22 @@ import RealmSwift
     }
 
     
+    func addingCompagni(in realm: Realm = try! Realm(configuration: RealmUtils.config), compagno : Compagno) {
+        do {
+            try realm.write {
+                compagni.insert(compagno, at: 0)
+            }
+        }catch {}
+    }
+    
+    func removeCompagno(in realm: Realm = try! Realm(configuration: RealmUtils.config), index: Int) {
+        do {
+            try realm.write {
+                self.compagni.remove(at: index)
+            }
+        }catch {}
+    }
+    
    override static func primaryKey() -> String? {
         return "id"
     }

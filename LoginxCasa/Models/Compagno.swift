@@ -29,6 +29,24 @@ import RealmSwift
         
     }
     
+    
+    func changeData(in realm: Realm = try! Realm(configuration: RealmUtils.config), name : String? = nil, surname: String? = nil, image: Data? = nil, compagno: Compagno? = nil) {
+        do {
+            try realm.write {
+                
+                self.image = image ?? compagno?.image ?? self.image
+                self.name = name ?? compagno?.name ?? self.name
+                self.surname = surname ?? compagno?.surname ?? self.surname
+               
+            }
+        }catch {}
+        
+    }
+    
+    
+    
+  
+    
     func add(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
@@ -36,6 +54,14 @@ import RealmSwift
             }
         } catch {}
     }
+    func remove(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+        do {
+            try realm.write {
+                realm.delete(self)
+            }
+        } catch {}
+    }
+    
     
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Compagno] {
         return Array(realm.objects(Compagno.self))
