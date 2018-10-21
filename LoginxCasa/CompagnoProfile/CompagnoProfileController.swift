@@ -18,15 +18,53 @@ class CompagnoProfileController: UIViewController{
 
     @IBOutlet var textFields: [UITextField]!
 
-
+//
+    @IBOutlet weak var nameLabel: UITextField!
+    
+    @IBOutlet weak var surnameLabel: UITextField!
+    
+//    var nameShow : String!
+//    var surnameShow : String!
+//    var imageShow : Data!
+    
     private var pickerController:UIImagePickerController?
 
     var compagno : Compagno = Compagno()
      weak var delegate : CompagnoDelegate?
 
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        nameLabel.text = nameShow
+//        surnameLabel.text = surnameShow
+//         if let imageProfile = imageShow {
+//                    Img.setImage(UIImage(data: imageProfile), for: .normal)
+//                }
+        
+        nameLabel.text = compagno.name
+        surnameLabel.text = compagno.surname
+        if let imageProfile = compagno.image {
+            Img.setImage(UIImage(data: imageProfile), for: .normal)
+        }
+        
+    }
+    
+    
+       
+            
+        
+    
+    
+    
+    
+  
+    
+    
     @IBAction func AddAction(_ sender: UIButton) {
 
 
+        
         var name : String!
         var surname : String!
         for i in 0..<textFields.count {
@@ -57,10 +95,10 @@ class CompagnoProfileController: UIViewController{
 
                 delegate?.addingCompagno(compagno: compagno)
 
-
+        
                 navigationController?.popViewController(animated: true)
 
-
+      
 
 
     }

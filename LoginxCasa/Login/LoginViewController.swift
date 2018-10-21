@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordOutlet: UITextField!
     
     private var user : Persona!
+
     
     @IBAction func loginAction(_ sender: UIButton) {
         

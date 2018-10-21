@@ -77,6 +77,13 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        let Storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let DvC = Storyboard.instantiateViewController(withIdentifier: "CompagnoProfileController") as! CompagnoProfileController
+//        DvC.nameShow = listaCompagni[indexPath.row]
+//        DvC.surnameShow = listaCompagni[indexPath.row]
+//        DvC.imageShow = listaCompagni[indexPath.row]
+        
         selectedCompagno = listaCompagni[indexPath.row]
         self.performSegue(withIdentifier: "segueCompagnoProfile", sender: self)
         
@@ -101,6 +108,7 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
         
         let alert = UIAlertController(title: "Filtra", message: "Vuoi Filtrare?", preferredStyle: .alert)
         let Nome = UIAlertAction(title: "Nome", style: .default, handler: nil)
+        
         alert.addAction(Nome)
         
         let Cognome = UIAlertAction(title: "Cognome", style: .default, handler: nil)
@@ -116,7 +124,8 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     
    
     
-    @IBAction func GoProfile(_ sender: Any) {
+    @IBAction func GoProfile(_ sender: UIBarButtonItem) {
+         selectedCompagno = nil
          self.performSegue(withIdentifier: "segueCompagnoProfile", sender: self)
     }
     

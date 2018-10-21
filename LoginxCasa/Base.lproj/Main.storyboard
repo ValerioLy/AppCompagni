@@ -195,7 +195,7 @@
         <!--Compagno Profile Controller-->
         <scene sceneID="tmW-Ux-TJe">
             <objects>
-                <viewController id="b0l-hk-k1T" customClass="CompagnoProfileController" customModule="LoginxCasa" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompagnoProfileController" id="b0l-hk-k1T" customClass="CompagnoProfileController" customModule="LoginxCasa" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cQN-sO-vqW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,6 +263,8 @@
                     </view>
                     <connections>
                         <outlet property="Img" destination="UWN-PH-wRw" id="Qap-r7-5ZG"/>
+                        <outlet property="nameLabel" destination="vep-bM-e5d" id="vns-2b-rgM"/>
+                        <outlet property="surnameLabel" destination="5EM-f2-lLE" id="CB2-F4-Zse"/>
                         <outletCollection property="textFields" destination="vep-bM-e5d" collectionClass="NSMutableArray" id="eAg-W1-JSj"/>
                         <outletCollection property="textFields" destination="5EM-f2-lLE" collectionClass="NSMutableArray" id="48b-aU-tyS"/>
                     </connections>
