@@ -11,6 +11,7 @@ import UIKit
 // delegate aggiungi compagno
 protocol CompagnoDelegate: class {
     func addingCompagno(compagno: Compagno)
+    func editCompagno(compagno : Compagno, name : String, surname : String, image : Data)
     
 }
 
@@ -148,6 +149,11 @@ extension ListaCompagniController: CompagnoDelegate {
         tableView.reloadData()
     }
     
-
+    func editCompagno(compagno : Compagno, name : String, surname : String, image : Data) {
+        compagno.changeData(name: name,surname: surname,image: image)
+        
+        tableView.reloadData()
+        
+    }
     
 }

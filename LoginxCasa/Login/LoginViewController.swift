@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
                 NSLog("Login corretto" )
                 user = variabile
                 self.performSegue(withIdentifier: "segueListaCompagni", sender: self)
-                
+                break
             }
           
             

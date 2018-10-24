@@ -179,13 +179,13 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZzX-gt-zAU">
                             <connections>
                                 <action selector="GoProfile:" destination="BYZ-38-t0r" id="vDH-LC-v8U"/>
-                                <segue destination="b0l-hk-k1T" kind="show" identifier="segueCompagnoProfile" id="8zg-Um-rJZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="b9H-Mc-Hey" id="Dbh-KK-MQK"/>
                         <segue destination="5KR-TD-vzL" kind="show" identifier="segueSeats" id="KNQ-La-n8e"/>
+                        <segue destination="b0l-hk-k1T" kind="show" identifier="segueCompagnoProfile" id="1yS-h3-8Ap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
