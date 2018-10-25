@@ -11,7 +11,7 @@ import UIKit
 // delegate aggiungi compagno
 protocol CompagnoDelegate: class {
     func addingCompagno(compagno: Compagno)
-    func editCompagno(compagno : Compagno, name : String, surname : String, image : Data)
+    func editCompagno(compagno : Compagno, name : String, surname : String, image : Data, star1 : String, star2 : String, star3 : String, star4 : String, star5 : String)
     
 }
 
@@ -52,6 +52,27 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
         cell.NameLabel.text = listaCompagni[indexPath.row].name
         cell.SurnameLabel.text = listaCompagni[indexPath.row].surname
 
+
+        if let stella1 = listaCompagni[indexPath.row].star1{
+            cell.stars[0].setTitle(stella1, for: .normal)
+        }
+        
+        if let stella2 = listaCompagni[indexPath.row].star2{
+            cell.stars[1].setTitle(stella2, for: .normal)
+        }
+        
+        if let stella3 = listaCompagni[indexPath.row].star3{
+            cell.stars[2].setTitle(stella3, for: .normal)
+        }
+        
+        if let stella4 = listaCompagni[indexPath.row].star4{
+            cell.stars[3].setTitle(stella4, for: .normal)
+        }
+        
+        if let stella5 = listaCompagni[indexPath.row].star5{
+            cell.stars[4].setTitle(stella5, for: .normal)
+        }
+       
         
         if let imageProfile = listaCompagni[indexPath.row].image{
           cell.Img.setImage(UIImage(data: imageProfile), for: .normal)
@@ -65,12 +86,12 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
         return 80
     }
     
-    //
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             print("Deleted")
             
-            person.removeCompagno(index: indexPath.row)
+
             listaCompagni[indexPath.row].remove()
             listaCompagni.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -79,11 +100,7 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let Storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let DvC = Storyboard.instantiateViewController(withIdentifier: "CompagnoProfileController") as! CompagnoProfileController
-//        DvC.nameShow = listaCompagni[indexPath.row]
-//        DvC.surnameShow = listaCompagni[indexPath.row]
-//        DvC.imageShow = listaCompagni[indexPath.row]
+
         
         selectedCompagno = listaCompagni[indexPath.row]
         self.performSegue(withIdentifier: "segueCompagnoProfile", sender: self)
@@ -108,14 +125,24 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func ActionFilter(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Filtra", message: "Vuoi Filtrare?", preferredStyle: .alert)
-        let Nome = UIAlertAction(title: "Nome", style: .default, handler: nil)
-        
+        let Nome = UIAlertAction(title: "Nome", style: .default) { action in
+            self.listaCompagni=self.listaCompagni.sorted(by: { $0.getName() < $1.getName() })
+            self.tableView.reloadData()
+        }
         alert.addAction(Nome)
         
-        let Cognome = UIAlertAction(title: "Cognome", style: .default, handler: nil)
+        let Cognome = UIAlertAction(title: "Cognome", style: .default){ action in
+            self.listaCompagni=self.listaCompagni.sorted(by: { $0.getSurname() < $1.getSurname() })
+            self.tableView.reloadData()
+        }
         alert.addAction(Cognome)
+       
+        let Stelle = UIAlertAction(title: "Stelle", style: .default) { action in
+            self.listaCompagni=self.listaCompagni.sorted(by: { $0.getStars() < $1.getStars() })
+            self.tableView.reloadData()
+        }
+      
         
-        let Stelle = UIAlertAction(title: "Nome", style: .default, handler: nil)
         alert.addAction(Stelle)
         
         self.present(alert, animated: true, completion: nil)
@@ -149,8 +176,8 @@ extension ListaCompagniController: CompagnoDelegate {
         tableView.reloadData()
     }
     
-    func editCompagno(compagno : Compagno, name : String, surname : String, image : Data) {
-        compagno.changeData(name: name,surname: surname,image: image)
+    func editCompagno(compagno : Compagno, name : String, surname : String, image : Data, star1 : String, star2 : String, star3 : String, star4 : String, star5 : String) {
+        compagno.changeData(name: name,surname: surname,image: image, star1 : star1, star2 : star2, star3 : star3, star4 : star4, star5 : star5)
         
         tableView.reloadData()
         

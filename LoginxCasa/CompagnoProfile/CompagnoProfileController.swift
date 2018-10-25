@@ -6,6 +6,16 @@ class CompagnoProfileController: UIViewController{
         case name = 0
         case surname
     }
+    enum ButtonType : Int {
+        case button1 = 0
+        case button2
+        case button3
+        case button4
+        case button5
+    }
+    
+    
+    
     @IBOutlet weak var Img: UIButton!
     
     @IBOutlet var textFields: [UITextField]!
@@ -13,14 +23,18 @@ class CompagnoProfileController: UIViewController{
     var name : String!
     var surname : String!
     var image : Data!
+    var star1 : String!
+    var star2 : String!
+    var star3 : String!
+    var star4 : String!
+    var star5 : String!
     
     @IBOutlet weak var nameLabel: UITextField!
     
     @IBOutlet weak var surnameLabel: UITextField!
     
-    //    var nameShow : String!
-    //    var surnameShow : String!
-    //    var imageShow : Data!
+    @IBOutlet  var buttonOutlets: [UIButton]!
+    
     
     private var pickerController:UIImagePickerController?
     
@@ -32,11 +46,6 @@ class CompagnoProfileController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        nameLabel.text = nameShow
-        //        surnameLabel.text = surnameShow
-        //         if let imageProfile = imageShow {
-        //                    Img.setImage(UIImage(data: imageProfile), for: .normal)
-        //                }
         if(compagno.name == nil && compagno.surname == nil && compagno.image == nil){
             empty = true
         }
@@ -49,11 +58,47 @@ class CompagnoProfileController: UIViewController{
             Img.setImage(UIImage(data: imageProfile), for: .normal)
         }
         
+        
+        
+        
+        if let stella1 = compagno.star1 {
+            buttonOutlets[0].setTitle(stella1, for: .normal)
+        }
+        
+        if let stella2 = compagno.star2{
+            buttonOutlets[1].setTitle(stella2, for: .normal)
+        }
+        
+        if let stella3 = compagno.star3{
+           buttonOutlets[2].setTitle(stella3, for: .normal)
+        }
+        
+        if let stella4 = compagno.star4{
+          buttonOutlets[3].setTitle(stella4, for: .normal)
+        }
+        
+        if let stella5 = compagno.star5{
+            buttonOutlets[4].setTitle(stella5, for: .normal)
+        }
+        
+        
     }
     
     
     
     
+    @IBAction func StarAction(_ sender: UIButton) {
+        for btn in buttonOutlets {
+            if(btn.tag <= sender.tag){
+                btn.setTitle("★", for: .normal)
+            }
+            else {
+                btn.setTitle("☆", for: .normal)
+            }
+        }
+        
+      
+    }
     
     
     
@@ -81,6 +126,35 @@ class CompagnoProfileController: UIViewController{
             
         }
         image=Img.imageView?.image?.pngData()
+        
+      
+        for i in 0..<buttonOutlets.count {
+            
+            switch buttonOutlets[i].tag {
+            case ButtonType.button1.rawValue:
+                star1 = buttonOutlets[i].currentTitle
+                break
+            case ButtonType.button2.rawValue:
+                star2 = buttonOutlets[i].currentTitle
+                break
+            case ButtonType.button3.rawValue:
+                star3 = buttonOutlets[i].currentTitle
+                break
+            case ButtonType.button4.rawValue:
+                star4 = buttonOutlets[i].currentTitle
+                break
+            case ButtonType.button5.rawValue:
+                star5 = buttonOutlets[i].currentTitle
+                break
+                
+            default : break
+            }
+            
+        }
+
+        
+        
+        
         //compagno = Compagno(name: name, surname: surname, image: image)
         
         guard (name != nil && !name!.isEmpty) || (surname != nil && !surname!.isEmpty) else {
@@ -93,11 +167,11 @@ class CompagnoProfileController: UIViewController{
             return }
         
         if(empty){
-            compagno = Compagno(name: name, surname: surname, image: image)
+            compagno = Compagno(name: name, surname: surname, image: image, star1: star1, star2: star2, star3: star3, star4: star4, star5: star5)
             delegate?.addingCompagno(compagno: compagno)
         }
         else{
-            delegate?.editCompagno(compagno: compagno,name: name,surname: surname,image: image)
+            delegate?.editCompagno(compagno: compagno,name: name,surname: surname,image: image, star1: star1, star2: star2, star3: star3, star4: star4, star5: star5)
         }
         
         navigationController?.popViewController(animated: true)

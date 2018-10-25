@@ -33,17 +33,7 @@ class ListaCompagniCell: UITableViewCell {
     }
     
 
-    @IBAction func ActionStars(_ sender: UIButton) {
-        
-        for btn in stars {
-            if(btn.tag <= sender.tag){
-                btn.setTitle("★", for: .normal)
-            }
-            else {
-                btn.setTitle("☆", for: .normal)
-            }
-        }
-    }
+  
     
    
     
