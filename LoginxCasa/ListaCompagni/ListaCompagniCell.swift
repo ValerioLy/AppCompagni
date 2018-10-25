@@ -17,7 +17,8 @@ class ListaCompagniCell: UITableViewCell {
     
     @IBOutlet weak var SurnameLabel: UILabel!
     
-    @IBOutlet  var stairs: [UIButton]!
+    @IBOutlet var stars: [UIButton]!
+    
     
     static let kidentifier = "ListaCompagniCell"
     
@@ -31,13 +32,19 @@ class ListaCompagniCell: UITableViewCell {
   
     }
     
-    
-    @IBAction func ActionStairs(_ sender: UIButton) {
+
+    @IBAction func ActionStars(_ sender: UIButton) {
         
-      
+        for btn in stars {
+            if(btn.tag <= sender.tag){
+                btn.setTitle("★", for: .normal)
+            }
+            else {
+                btn.setTitle("☆", for: .normal)
+            }
+        }
     }
     
-  
    
     
 }
