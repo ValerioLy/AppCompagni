@@ -113,9 +113,16 @@ class UserProfileController: UIViewController {
         
         
    
-
-        self.performSegue(withIdentifier: "segueCompagni", sender: self)
+//
+//        self.performSegue(withIdentifier: "segueCompagni", sender: self)
     }
+    
+  // Torna al Login
+    @IBAction func GoLogin(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "segueGoLogin", sender: self)
+    }
+    
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

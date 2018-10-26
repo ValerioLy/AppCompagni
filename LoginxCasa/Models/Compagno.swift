@@ -103,6 +103,7 @@ import RealmSwift
     }
     
     
+    
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Compagno] {
         return Array(realm.objects(Compagno.self))
     }
