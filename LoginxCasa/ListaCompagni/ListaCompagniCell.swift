@@ -13,9 +13,20 @@ class ListaCompagniCell: UITableViewCell {
     
     @IBOutlet weak var Img: UIButton!
     
-    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var NameLabel: UILabel! {
+        didSet {
+            NameLabel.text = "kListName".localized
+        }
+    }
     
-    @IBOutlet weak var SurnameLabel: UILabel!
+    @IBOutlet weak var SurnameLabel: UILabel!{
+        didSet {
+            SurnameLabel.text = "kListSurname".localized
+        }
+    }
+    
+    
+    
     
     @IBOutlet var stars: [UIButton]!
     

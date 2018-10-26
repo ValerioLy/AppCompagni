@@ -21,6 +21,21 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
    
+    @IBOutlet weak var FilterOutlet: UIBarButtonItem! {
+        didSet {
+            FilterOutlet.title = "kListFilter".localized
+        }
+    }
+    
+    
+    @IBOutlet weak var GoPostiOutlet: UIButton!
+        {
+        didSet {
+            GoPostiOutlet.setTitle("kListButton".localized, for: .normal)
+        }
+    }
+    
+    
     var person : Persona = Persona()
     
     
@@ -124,20 +139,20 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBAction func ActionFilter(_ sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(title: "Filtra", message: "Vuoi Filtrare?", preferredStyle: .alert)
-        let Nome = UIAlertAction(title: "Nome", style: .default) { action in
+        let alert = UIAlertController(title: "kFilterTitle".localized, message: "kFilterDesc".localized, preferredStyle: .alert)
+        let Nome = UIAlertAction(title: "kFilterName".localized, style: .default) { action in
             self.listaCompagni=self.listaCompagni.sorted(by: { $0.getName() < $1.getName() })
             self.tableView.reloadData()
         }
         alert.addAction(Nome)
         
-        let Cognome = UIAlertAction(title: "Cognome", style: .default){ action in
+        let Cognome = UIAlertAction(title: "kFilterSurname".localized, style: .default){ action in
             self.listaCompagni=self.listaCompagni.sorted(by: { $0.getSurname() < $1.getSurname() })
             self.tableView.reloadData()
         }
         alert.addAction(Cognome)
        
-        let Stelle = UIAlertAction(title: "Stelle", style: .default) { action in
+        let Stelle = UIAlertAction(title: "kFilterStars".localized, style: .default) { action in
             self.listaCompagni=self.listaCompagni.sorted(by: { $0.getStars() < $1.getStars() })
             self.tableView.reloadData()
         }

@@ -13,8 +13,43 @@ class LoginViewController: UIViewController {
     private var listOfPerson : [Persona] = []
     
     
-    @IBOutlet weak var emailOutlet: UITextField!
-    @IBOutlet weak var passwordOutlet: UITextField!
+    @IBOutlet weak var emailTesto: UILabel! {
+    didSet {
+    emailTesto.text = "kLoginEmailLabel".localized
+    }
+}
+    
+    @IBOutlet weak var passwordTesto: UILabel!
+        {
+        didSet {
+            passwordTesto.text = "kLoginPasswordLabel".localized
+        }
+    }
+    
+    @IBOutlet weak var LoginOutlet: UIButton!
+        {
+        didSet {
+            LoginOutlet.setTitle("kLoginButton".localized, for: .normal)
+        }
+    }
+    @IBOutlet weak var RegisterOutlet: UIButton!
+        {
+        didSet {
+            RegisterOutlet.setTitle("kRegisterButton".localized, for: .normal)
+        }
+    }
+    
+    
+    @IBOutlet weak var emailOutlet: UITextField! {
+        didSet {
+            emailOutlet.placeholder = "kLoginEmailPlaceHolder".localized
+        }
+    }
+    @IBOutlet weak var passwordOutlet: UITextField!{
+        didSet {
+           passwordOutlet.placeholder = "kLoginPasswordPlaceHolder".localized
+        }
+    }
     
     private var user : Persona!
 

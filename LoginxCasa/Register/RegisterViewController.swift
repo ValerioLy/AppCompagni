@@ -17,11 +17,78 @@ class RegisterViewController: UIViewController {
         case password
         case password2
     }
+    enum LabelFieldsType : Int{
+        case name = 0
+        case surname
+        case email
+        case password
+        case password2
+    }
     private var listPerson : [Persona]!
     
     private var userRegistered : Persona?
     
-    @IBOutlet var registerCollection: [UITextField]!
+    
+    
+    @IBOutlet var labelCollection: [UILabel]!{
+        didSet {
+            for labels in labelCollection {
+                switch labels.tag {
+                case LabelFieldsType.name.rawValue : labels.text = "kSignUpName".localized
+                case LabelFieldsType.surname.rawValue : labels.text = "kSignUpSurname".localized
+                case LabelFieldsType.email.rawValue : labels.text = "kSignUpEmail".localized
+                case LabelFieldsType.password.rawValue : labels.text = "kSignUpPassword".localized
+                case LabelFieldsType.password2.rawValue : labels.text = "kSignUpRepeatPassword".localized
+                    
+                default : break
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    @IBOutlet var registerCollection: [UITextField]! {
+        didSet {
+            for placeholders in registerCollection {
+                switch placeholders.tag {
+                case TextFieldsType.name.rawValue : placeholders.placeholder = "kSignUpName".localized
+                    case TextFieldsType.surname.rawValue : placeholders.placeholder = "kSignUpSurname".localized
+                    case TextFieldsType.email.rawValue : placeholders.placeholder = "kSignUpEmail".localized
+                    case TextFieldsType.password.rawValue : placeholders.placeholder = "kSignUpPassword".localized
+                    case TextFieldsType.password2.rawValue : placeholders.placeholder = "kSignUpRepeatPassword".localized
+                    
+                default : break
+                }
+            }
+        }
+    }
+    
+    
+    @IBOutlet weak var registerOutlet: UIButton! {
+        didSet {
+            registerOutlet.setTitle("kSignUpRegisterButton".localized, for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var loginOutlet: UIButton! {
+        didSet {
+            loginOutlet.setTitle("kSignUpLoginButton".localized, for: .normal)
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @IBAction func registerActionButton(_ sender: UIButton) {
         for tag in 0...4 {
             NSLog("tag: "+String(tag))

@@ -15,10 +15,25 @@ class CompagnoProfileController: UIViewController{
     }
     
     
+    @IBOutlet weak var SaveOutlet: UIButton! {
+        didSet {
+            SaveOutlet.setTitle("kCompagnoSave".localized, for: .normal)
+        }
+    }
     
     @IBOutlet weak var Img: UIButton!
     
-    @IBOutlet var textFields: [UITextField]!
+    @IBOutlet var textFields: [UITextField]! {
+        didSet {
+            for texts in textFields {
+                switch texts.tag {
+                case TextFieldType.name.rawValue : texts.placeholder = "kCompagnoName".localized
+                case TextFieldType.surname.rawValue : texts.placeholder = "kCompagnoSurname".localized
+                default : break
+                }
+            }
+        }
+    }
     
     var name : String!
     var surname : String!

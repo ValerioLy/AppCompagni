@@ -21,7 +21,33 @@ class UserProfileController: UIViewController {
     
     @IBOutlet weak var img: UIButton!
     
-    @IBOutlet var textFields: [UITextField]!
+    @IBOutlet var textFields: [UITextField]! {
+        didSet {
+            for texts in textFields {
+                switch texts.tag {
+                case textFieldType.name.rawValue: texts.placeholder = "kUserName".localized
+                     case textFieldType.surname.rawValue: texts.placeholder = "kUserSurname".localized
+                     case textFieldType.email.rawValue: texts.placeholder = "kUserEmail".localized
+                     case textFieldType.password.rawValue: texts.placeholder = "kUserPassword".localized
+                default : break
+                }
+            }
+        }
+    }
+    
+    
+    
+    @IBOutlet weak var EditProfileButton: UIButton! {
+        didSet {
+            EditProfileButton.setTitle("kEditProfile".localized, for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var GoLoginButton: UIButton!{
+        didSet {
+        GoLoginButton.setTitle("kUserProfileLogin".localized, for: .normal)
+        }
+    }
     
     
     var person : Persona = Persona()
