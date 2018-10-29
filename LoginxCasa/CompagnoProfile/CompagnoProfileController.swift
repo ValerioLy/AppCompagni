@@ -43,6 +43,7 @@ class CompagnoProfileController: UIViewController{
     var star3 : String!
     var star4 : String!
     var star5 : String!
+    var stars : Int!
     
     @IBOutlet weak var nameLabel: UITextField!
     
@@ -54,14 +55,14 @@ class CompagnoProfileController: UIViewController{
     private var pickerController:UIImagePickerController?
     
     
-    var compagno : Compagno = Compagno()
+    var compagno : Compagno?
     weak var delegate : CompagnoDelegate?
     private var empty : Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(compagno.name == nil && compagno.surname == nil && compagno.image == nil){
+        /*if(compagno.name == nil && compagno.surname == nil && compagno.image == nil){
             empty = true
         }
         else{
@@ -94,6 +95,95 @@ class CompagnoProfileController: UIViewController{
         
         if let stella5 = compagno.star5{
             buttonOutlets[4].setTitle(stella5, for: .normal)
+        }*/
+        
+        if compagno != nil{
+            empty = false
+            nameLabel.text = compagno?.getName()
+            surnameLabel.text = compagno?.getSurname()
+            if let imageProfile = compagno?.getImage() {
+                Img.setImage(UIImage(data: imageProfile), for: .normal)
+            }
+            stars = Int((compagno?.getStars())!)
+            for i in 0..<5 {
+                
+                switch buttonOutlets[i].tag {
+                case 0:
+                    if stars > 0{
+                        buttonOutlets[i].setTitle("★", for: .normal)
+                    }
+                    else{
+                        buttonOutlets[i].setTitle("☆", for: .normal)
+                        
+                    }
+                    break
+                case 1:
+                    if stars > 1{
+                        buttonOutlets[i].setTitle("★", for: .normal)
+                    }
+                    else{
+                        buttonOutlets[i].setTitle("☆", for: .normal)
+                        
+                    }
+                    break
+                case 2:
+                    if stars > 2{
+                        buttonOutlets[i].setTitle("★", for: .normal)
+                    }
+                    else{
+                        buttonOutlets[i].setTitle("☆", for: .normal)
+                        
+                    }
+                    break
+                case 3:
+                    if stars > 3{
+                        buttonOutlets[i].setTitle("★", for: .normal)
+                    }
+                    else{
+                        buttonOutlets[i].setTitle("☆", for: .normal)
+                        
+                    }
+                    break
+                case 4:
+                    if stars == 5{
+                        buttonOutlets[i].setTitle("★", for: .normal)
+                    }
+                    else{
+                        buttonOutlets[i].setTitle("☆", for: .normal)
+                        
+                    }
+                    break
+                default : break
+                }
+                
+            }
+            
+            /*for i in stars..<5 {
+                
+                switch buttonOutlets[i].tag {
+                case 0:
+                    buttonOutlets[i].setTitle("☆", for: .normal)
+                    break
+                case 1:
+                    buttonOutlets[i].setTitle("☆", for: .normal)
+                    break
+                case 2:
+                    buttonOutlets[i].setTitle("☆", for: .normal)
+                    break
+                case 3:
+                    buttonOutlets[i].setTitle("☆", for: .normal)
+                    break
+                case 4:
+                    buttonOutlets[i].setTitle("☆", for: .normal)
+                    break
+                default : break
+                }
+                
+            }*/
+            
+        }
+        else{
+            empty = true
         }
         
         
@@ -142,10 +232,10 @@ class CompagnoProfileController: UIViewController{
         }
         image=Img.imageView?.image?.pngData()
         
-      
+        stars = 0
         for i in 0..<buttonOutlets.count {
             
-            switch buttonOutlets[i].tag {
+            /*switch buttonOutlets[i].tag {
             case ButtonType.button1.rawValue:
                 star1 = buttonOutlets[i].currentTitle
                 break
@@ -163,10 +253,14 @@ class CompagnoProfileController: UIViewController{
                 break
                 
             default : break
+            }*/
+            
+            if buttonOutlets[i].currentTitle == "★"{
+                stars+=1
             }
             
         }
-
+        NSLog("Stelle lette = " + String(stars))
         
         
         
@@ -182,11 +276,13 @@ class CompagnoProfileController: UIViewController{
             return }
         
         if(empty){
-            compagno = Compagno(name: name, surname: surname, image: image, star1: star1, star2: star2, star3: star3, star4: star4, star5: star5)
-            delegate?.addingCompagno(compagno: compagno)
+            //compagno = Compagno(name: name, surname: surname, image: image, star1: star1, star2: star2, star3: star3, star4: star4, star5: star5)
+            compagno = Compagno(name: name, surname: surname, image: image, stars : String(stars))
+            delegate?.addingCompagno(compagno: compagno!)
         }
         else{
-            delegate?.editCompagno(compagno: compagno,name: name,surname: surname,image: image, star1: star1, star2: star2, star3: star3, star4: star4, star5: star5)
+            //delegate?.editCompagno(compagno: compagno,name: name,surname: surname,image: image, star1: star1, star2: star2, star3: star3, star4: star4, star5: star5)
+            delegate?.editCompagno(compagno: compagno!,name: name,surname: surname,image: image, stars: String(stars))
         }
         
         navigationController?.popViewController(animated: true)

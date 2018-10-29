@@ -15,14 +15,15 @@ import RealmSwift
     dynamic var image : Data?
     dynamic var name : String?
     dynamic var surname : String?
-    dynamic var star1 : String?
+    /*dynamic var star1 : String?
     dynamic var star2 : String?
     dynamic var star3 : String?
     dynamic var star4 : String?
-    dynamic var star5 : String?
+    dynamic var star5 : String?*/
+    dynamic var stars : String?
 
     
-    convenience init(name : String? = nil, surname: String? = nil, image: Data? = nil, star1: String? = nil, star2: String? = nil, star3: String? = nil, star4: String? = nil, star5: String? = nil) {
+    convenience init(name : String? = nil, surname: String? = nil, image: Data? = nil, star1: String? = nil, star2: String? = nil, star3: String? = nil, star4: String? = nil, star5: String? = nil, stars: String? = nil) {
         self.init()
         
         
@@ -30,27 +31,29 @@ import RealmSwift
         self.name = name
         self.surname = surname
         self.image = image
-        self.star1 = star1
+        /*self.star1 = star1
          self.star2 = star2
          self.star3 = star3
          self.star4 = star4
-         self.star5 = star5
+         self.star5 = star5*/
+        self.stars = stars
         
     }
     
     
-    func changeData(in realm: Realm = try! Realm(configuration: RealmUtils.config), name : String? = nil, surname: String? = nil, image: Data? = nil, star1: String? = nil, star2: String? = nil, star3: String? = nil, star4: String? = nil, star5: String? = nil, compagno: Compagno? = nil) {
+    func changeData(in realm: Realm = try! Realm(configuration: RealmUtils.config), name : String? = nil, surname: String? = nil, image: Data? = nil, star1: String? = nil, star2: String? = nil, star3: String? = nil, star4: String? = nil, star5: String? = nil, compagno: Compagno? = nil, stars: String? = nil) {
         do {
             try realm.write {
                 
                 self.image = image ?? compagno?.image ?? self.image
                 self.name = name ?? compagno?.name ?? self.name
                 self.surname = surname ?? compagno?.surname ?? self.surname
-                self.star1 = star1 ?? compagno?.star1 ?? self.star1
+                /*self.star1 = star1 ?? compagno?.star1 ?? self.star1
                  self.star2 = star2 ?? compagno?.star2 ?? self.star2
                  self.star3 = star3 ?? compagno?.star3 ?? self.star3
                  self.star4 = star4 ?? compagno?.star4 ?? self.star4
-                 self.star5 = star5 ?? compagno?.star5 ?? self.star5
+                 self.star5 = star5 ?? compagno?.star5 ?? self.star5*/
+                self.stars = stars ?? compagno?.stars ?? self.stars
             }
         }catch {}
         
@@ -66,8 +69,8 @@ import RealmSwift
         return self.surname ?? ""
     }
     
-    func getStars() -> Int {
-        var variabile = 0
+    func getStars() -> String {
+        /*var variabile = 0
         if star1 == "★" {
             variabile += 1
         }
@@ -82,9 +85,13 @@ import RealmSwift
         }
         if star5 == "★" {
             variabile += 1
-        }
+        }*/
         
-        return variabile
+        return self.stars ?? "0"
+    }
+    
+    func getImage() -> Data?{
+        return self.image
     }
     
     func add(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {

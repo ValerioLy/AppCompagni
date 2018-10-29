@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    private var listOfPerson : [Persona] = []
+    //private var listOfPerson : [Persona] = []
     
     
     @IBOutlet weak var emailTesto: UILabel! {
@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private var user : Persona!
+    private var user : Persona?
 
     
     @IBAction func loginAction(_ sender: UIButton) {
@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
         
         
         
-        for variabile in listOfPerson {
+        /*for variabile in listOfPerson {
             if variabile.email == emailOutlet.text && variabile.password == passwordOutlet.text{
                 NSLog("Login corretto" )
                 user = variabile
@@ -78,9 +78,25 @@ class LoginViewController: UIViewController {
         let alert = UIAlertController(title: "Login failed", message: "wrong password or email", preferredStyle: .alert)
         let okay = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
         alert.addAction(okay)
+        self.present(alert, animated: true, completion: nil)*/
+        
+        user = Persona.readUser( withid: emailOutlet.text!)
+        if user != nil {
+            if user!.getPassword() == passwordOutlet.text{
+                NSLog("Login corretto!")
+                self.performSegue(withIdentifier: "mySegue", sender: self)
+                return
+            }
+        }
+        NSLog("Login errato!")
+        let alert = UIAlertController(title: "Login failed", message: "wrong password or email", preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+        alert.addAction(okay)
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    
     @IBAction func registerAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "segueRegister", sender: self)
     }
@@ -89,7 +105,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        listOfPerson = Persona.all()
+        //listOfPerson = Persona.all()
         
     }
     
@@ -98,10 +114,12 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         switch segue.identifier {
-        case "segueListaCompagni":
+        case "mySegue":
             if let destinationController = segue.destination as? ListaCompagniController {
-                destinationController.person = user ?? Persona()
+                destinationController.person = user!
+                NSLog("Ho passato il compagno")
             }
+            break
         default:
             break
             

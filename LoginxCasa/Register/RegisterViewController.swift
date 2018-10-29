@@ -24,7 +24,7 @@ class RegisterViewController: UIViewController {
         case password
         case password2
     }
-    private var listPerson : [Persona]!
+    //private var listPerson : [Persona]!
     
     private var userRegistered : Persona?
     
@@ -114,13 +114,19 @@ class RegisterViewController: UIViewController {
         }
         NSLog("password.count OK!")
         let email : String! = registerCollection[TextFieldsType.email.rawValue].text
-        for persona in listPerson {
+        let pDB = Persona.readUser(withid: email)
+        /*for persona in listPerson {
             guard persona.email != email else{
                 myAlert("Existing email")
                 NSLog("email già esistente")
                 return
             }
             
+        }*/
+        guard (pDB == nil) else{
+            myAlert("Existing email")
+            NSLog("email già esistente")
+            return
         }
         guard isValidEmail(testStr: email) else{
             myAlert("Invalid email")
@@ -140,7 +146,7 @@ class RegisterViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        listPerson = Persona.all()
+        //listPerson = Persona.all()
         
         
     }

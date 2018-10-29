@@ -191,7 +191,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWN-PH-wRw">
-                                <rect key="frame" x="67" y="79" width="241" height="109"/>
+                                <rect key="frame" x="67" y="35" width="241" height="153"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="241" id="1Qd-vl-RzZ"/>
                                     <constraint firstAttribute="height" constant="153" id="Ggi-KZ-I2g"/>
@@ -295,24 +295,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VPV-vP-zcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2557.5999999999999" y="-671.51424287856082"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="kjl-ZV-gx7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hKf-aN-4S3" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Iep-6D-O3n">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wp0-Oz-fhE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xAD-A9-bNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="793" y="-672"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="7MX-5c-RBV">
@@ -666,14 +648,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cattedra" translatesAutoresizingMaskIntoConstraints="NO" id="rc6-Or-LYt">
-                                <rect key="frame" x="140" y="83" width="94" height="59"/>
+                                <rect key="frame" x="140" y="39" width="94" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="5RJ-ID-0j5"/>
                                     <constraint firstAttribute="width" constant="94" id="VtT-Pp-qXz"/>
                                 </constraints>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e51-LH-Myp">
-                                <rect key="frame" x="0.0" y="150" width="375" height="517"/>
+                                <rect key="frame" x="0.0" y="106" width="375" height="561"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="517" id="gU8-Oy-8f1"/>
@@ -839,7 +821,7 @@
                         <outlet property="passwordOutlet" destination="wr9-Ss-TlI" id="Ybc-Ig-hUv"/>
                         <outlet property="passwordTesto" destination="oON-ax-k26" id="Vtw-RG-IAz"/>
                         <segue destination="18e-Om-Fu4" kind="show" identifier="segueRegister" id="fhw-YM-Vji"/>
-                        <segue destination="hKf-aN-4S3" kind="show" identifier="segueListaCompagni" id="hMa-VH-Vtp"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="mySegue" id="Zyx-TN-hJI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cx7-g4-Uf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -871,6 +853,7 @@
         <image name="school" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="fhw-YM-Vji"/>
         <segue reference="bvG-bb-luv"/>
     </inferredMetricsTieBreakers>
 </document>

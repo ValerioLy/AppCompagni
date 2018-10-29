@@ -10,13 +10,13 @@ import UIKit
 import RealmSwift
 @objcMembers class Persona: Object {
 
-    dynamic var id : String!
+    //dynamic var id : String!
     dynamic var image : Data?
     dynamic var name : String?
     dynamic var surname : String?
     dynamic var mobile : String?
     dynamic var email : String?
-    dynamic var password : String!
+    dynamic var password : String?
     
     private let compagni : List<Compagno> = List<Compagno>()
     
@@ -25,7 +25,7 @@ import RealmSwift
     convenience init(image: Data? = nil, name : String? = nil, surname: String? = nil, password: String? = nil, mobile: String? = nil, email : String? = nil) {
         self.init()
         
-        self.id = UUID().uuidString
+        //self.id = UUID().uuidString
         self.image = image
         self.name = name
         self.surname = surname
@@ -36,6 +36,10 @@ import RealmSwift
 
     }
 
+    func getPassword() -> String{
+        return self.password ?? ""
+    }
+    
     
     func getCompagni() -> [Compagno] {
         return Array(compagni)
@@ -59,7 +63,7 @@ import RealmSwift
 //    }
     
    override static func primaryKey() -> String? {
-        return "id"
+        return "email"
     }
     
     func changeData(in realm: Realm = try! Realm(configuration: RealmUtils.config), name : String? = nil, surname: String? = nil, mobile: String? = nil, password: String? = nil, image: Data? = nil, email: String? = nil, persona: Persona? = nil) {

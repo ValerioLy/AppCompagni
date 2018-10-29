@@ -11,7 +11,7 @@ import UIKit
 // delegate aggiungi compagno
 protocol CompagnoDelegate: class {
     func addingCompagno(compagno: Compagno)
-    func editCompagno(compagno : Compagno, name : String, surname : String, image : Data, star1 : String, star2 : String, star3 : String, star4 : String, star5 : String)
+    func editCompagno(compagno : Compagno, name : String, surname : String, image : Data, stars : String)
     
 }
 
@@ -36,7 +36,7 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
-    var person : Persona = Persona()
+    var person : Persona!
     
     
     private var listaCompagni : [Compagno] = []  
@@ -49,7 +49,7 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
 
         
         
-        listaCompagni = Compagno.all()
+        listaCompagni = person.getCompagni()
 
     }
     
@@ -64,11 +64,11 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: ListaCompagniCell.kidentifier, for: indexPath) as! ListaCompagniCell
 
 
-        cell.NameLabel.text = listaCompagni[indexPath.row].name
-        cell.SurnameLabel.text = listaCompagni[indexPath.row].surname
+        cell.NameLabel.text = listaCompagni[indexPath.row].getName() ?? ""
+        cell.SurnameLabel.text = listaCompagni[indexPath.row].getSurname() ?? ""
 
 
-        if let stella1 = listaCompagni[indexPath.row].star1{
+        /*if let stella1 = listaCompagni[indexPath.row].star1{
             cell.stars[0].setTitle(stella1, for: .normal)
         }
         
@@ -86,11 +86,77 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
         
         if let stella5 = listaCompagni[indexPath.row].star5{
             cell.stars[4].setTitle(stella5, for: .normal)
+        }*/
+        let stelle = Int(listaCompagni[indexPath.row].getStars())!
+        NSLog("Numero stelle ricevute = " + String(stelle))
+        for i in 0..<5{
+            
+            switch cell.stars[i].tag {
+            case 0:
+                if stelle > 0{
+                    cell.stars[i].setTitle("★", for: .normal)
+                }
+                else{
+                    cell.stars[i].setTitle("☆", for: .normal)                }
+                break
+            case 1:
+                if stelle > 1 {
+                    cell.stars[i].setTitle("★", for: .normal)
+                }
+                else{
+                    cell.stars[i].setTitle("☆", for: .normal)                }
+                break
+            case 2:
+                if stelle > 2 {
+                    cell.stars[i].setTitle("★", for: .normal)
+                }
+                else{
+                    cell.stars[i].setTitle("☆", for: .normal)                }
+                break
+            case 3:
+                if stelle > 3{
+                    cell.stars[i].setTitle("★", for: .normal)
+                }
+                else{
+                    cell.stars[i].setTitle("☆", for: .normal)                }
+                break
+            case 4:
+                if stelle == 5{
+                    cell.stars[i].setTitle("★", for: .normal)
+                }
+                else{
+                    cell.stars[i].setTitle("☆", for: .normal)                }
+                break
+            default : break
+            }
+            
         }
        
+        /*for i in stelle..<5 {
+            
+            switch cell.stars[i].tag {
+            case 0:
+                cell.stars[i].setTitle("☆", for: .normal)
+                break
+            case 1:
+                cell.stars[i].setTitle("☆", for: .normal)
+                break
+            case 2:
+                cell.stars[i].setTitle("☆", for: .normal)
+                break
+            case 3:
+                cell.stars[i].setTitle("☆", for: .normal)
+                break
+            case 4:
+                cell.stars[i].setTitle("☆", for: .normal)
+                break
+            default : break
+            }
+            
+        }*/
         
-        if let imageProfile = listaCompagni[indexPath.row].image{
-          cell.Img.setImage(UIImage(data: imageProfile), for: .normal)
+        if let imageProfile = listaCompagni[indexPath.row].getImage(){
+            cell.Img.setImage(UIImage(data: imageProfile), for: .normal)
         } else {
             cell.Img.setImage(UIImage(named: "place"), for: .normal)
         }
@@ -127,7 +193,7 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
         switch segue.identifier {
         case "segueCompagnoProfile":
             if let destinationController = segue.destination as? CompagnoProfileController {
-                destinationController.compagno = selectedCompagno ?? Compagno()
+                destinationController.compagno = selectedCompagno
                 destinationController.delegate = self
             }
         default:
@@ -191,8 +257,8 @@ extension ListaCompagniController: CompagnoDelegate {
         tableView.reloadData()
     }
     
-    func editCompagno(compagno : Compagno, name : String, surname : String, image : Data, star1 : String, star2 : String, star3 : String, star4 : String, star5 : String) {
-        compagno.changeData(name: name,surname: surname,image: image, star1 : star1, star2 : star2, star3 : star3, star4 : star4, star5 : star5)
+    func editCompagno(compagno : Compagno, name : String, surname : String, image : Data, stars: String) {
+        compagno.changeData(name: name,surname: surname,image: image, stars : stars)
         
         tableView.reloadData()
         
