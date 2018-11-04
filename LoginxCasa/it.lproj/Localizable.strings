@@ -22,7 +22,7 @@ kSignUpName = "Nome";
 kSignUpSurname = "Cognome";
 kSignUpEmail = "E-mail";
 kSignUpPassword = "Password";
-kSignUpRepeatPassword = "Ripeti Password";
+kSignUpRepeatPassword = "Ripeti Psw";
 
 kSignUpLoginButton = "Accedi";
 kSignUpRegisterButton = "Registrati";
@@ -56,3 +56,8 @@ kFilterStars = "Stelle";
 kCompagnoName = "Nome";
 kCompagnoSurname = "Cognome";
 kCompagnoSave = "Salva";
+
+
+// Seats Controller
+
+kSeatsScambia = "Scambia";

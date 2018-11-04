@@ -11,7 +11,7 @@ import RealmSwift
 
 class RealmUtils{
     
-    private static let REALM_SCHEMA_VERSION : UInt64 = 30
+    private static let REALM_SCHEMA_VERSION : UInt64 = 36
     
     /// Setup Realm Configuration
     static var config: Realm.Configuration {

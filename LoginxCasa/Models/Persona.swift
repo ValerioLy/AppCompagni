@@ -19,7 +19,7 @@ import RealmSwift
     dynamic var password : String?
     
     private let compagni : List<Compagno> = List<Compagno>()
-    
+    private var posti : List<Compagno> = List<Compagno>()
     
 
     convenience init(image: Data? = nil, name : String? = nil, surname: String? = nil, password: String? = nil, mobile: String? = nil, email : String? = nil) {
@@ -50,6 +50,7 @@ import RealmSwift
         do {
             try realm.write {
                 compagni.insert(compagno, at: 0)
+                posti.insert(compagno, at: 0)
             }
         }catch {}
     }
@@ -76,6 +77,7 @@ import RealmSwift
                 self.mobile = mobile ?? persona?.mobile ?? self.mobile
                 self.email = email ?? persona?.email ?? self.email
                 self.password = password ?? persona?.password ?? self.password
+                
             }
         }catch {}
 
@@ -99,5 +101,24 @@ import RealmSwift
     
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Persona] {
         return Array(realm.objects(Persona.self))
+    }
+    
+    func getPosti(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Compagno]{
+        return Array(posti)
+    }
+    
+    func setPosti(in realm: Realm = try! Realm(configuration: RealmUtils.config), inizio : Int, fine : Int){
+        /*var seats = List<Compagno>()
+        
+        for compagno in posti{
+            seats.insert(compagno, at: 0)
+        }*/
+        
+        do {
+            try realm.write {
+                swap(&self.posti[inizio], &self.posti[fine])
+            }
+        } catch {}
+                
     }
 }

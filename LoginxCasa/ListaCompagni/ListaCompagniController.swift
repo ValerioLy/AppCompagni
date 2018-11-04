@@ -196,6 +196,13 @@ class ListaCompagniController: UIViewController, UITableViewDelegate, UITableVie
                 destinationController.compagno = selectedCompagno
                 destinationController.delegate = self
             }
+            break
+        case "segueSeats":
+            if let destinationController = segue.destination as? SeatsController {
+                destinationController.person = person
+                //destinationController.delegate = self
+            }
+            break
         default:
             break
         }

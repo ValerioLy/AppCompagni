@@ -140,7 +140,7 @@ class RegisterViewController: UIViewController {
         
         NSLog("Salvato, registrato!")
         
-        self.performSegue(withIdentifier: "segueUserProfile", sender: self.dismiss)
+        self.performSegue(withIdentifier: "segueLogin", sender: self.dismiss)
         
         //a
     }
@@ -153,11 +153,11 @@ class RegisterViewController: UIViewController {
     
     
    
-    @IBAction func GoLogin(_ sender: UIButton) {
+    /*@IBAction func GoLogin(_ sender: UIButton) {
         
         self.performSegue(withIdentifier: "segueLogin", sender: self.dismiss)
         
-    }
+    }*/
     
     
     
